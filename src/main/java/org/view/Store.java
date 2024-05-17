@@ -36,7 +36,7 @@ public class Store extends JFrame {
 
         try {
             con = DriverManager.getConnection(url,username,password);
-            System.out.println("The connection was done successfully");
+            System.out.println("The connection wa done successfully");
 
         }catch (SQLException ex){
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
