@@ -15,7 +15,8 @@ public class ConectionDb {
      Connection c=null;
      try {
          c = DriverManager.getConnection(url,username,password);
-         JOptionPane.showMessageDialog(null,"The connection was done successfully");
+         System.out.println("The connection was done successfully");
+
      }catch (SQLException ex){
          Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
      }
