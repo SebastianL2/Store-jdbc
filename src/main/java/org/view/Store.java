@@ -25,6 +25,7 @@ public class Store extends JFrame {
     private JButton searchButton;
     private JTextField idTextField;
     private JScrollPane tableProducts;
+    private JButton refreshButton;
 
     PreparedStatement pst;
     ConectionDb objcConection = new ConectionDb();
@@ -198,6 +199,12 @@ public class Store extends JFrame {
                 {
                     er.printStackTrace();
                 }
+            }
+        });
+        refreshButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reload_table();
             }
         });
     }
