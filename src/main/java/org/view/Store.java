@@ -118,7 +118,16 @@ public class Store extends JFrame {
                 int[] rows=products.getSelectedColumns();
                 if(row >=0){
                     String value = products.getValueAt(row,0).toString();
-                    JOptionPane.showMessageDialog(null, value);
+
+                    try{
+                        pst = objcConection.initConection().prepareStatement("DELETE FROM  products WHERE id = ?");
+                        pst.setString(1,value);
+                        pst.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Prducto eliminado con el id: "+value);
+                        reload_table();
+                    }catch (SQLException e1){
+                        e1.printStackTrace();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null, "Row no selected");
                 }
