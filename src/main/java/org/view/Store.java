@@ -31,7 +31,7 @@ public class Store extends JFrame {
     ConectionDb objcConection = new ConectionDb();
     Connection con =null;
     public void connect(){
-        String url = "jdbc:mysql://localhost:3306/tienda";
+        String url = "jdbc:mysql://localhost:3306/store";
         String username="root";
         String password="";
 

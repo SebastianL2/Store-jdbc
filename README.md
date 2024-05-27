@@ -12,9 +12,9 @@ A Java 18+ application using JDBC to connect to a MySQL database.
 
 ## MySQL Setup
 
-1. Create a database named `tienda`.
+1. Create a database named `store`.
 2. Use the following connection parameters:
    ```java
-   String url = "jdbc:mysql://localhost:3306/tienda";
+   String url = "jdbc:mysql://localhost:3306/store";
    String username = "root";
    String password = "";
