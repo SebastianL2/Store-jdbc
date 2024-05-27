@@ -123,7 +123,7 @@ public class Store extends JFrame {
                         pst = objcConection.initConection().prepareStatement("DELETE FROM  products WHERE id = ?");
                         pst.setString(1,value);
                         pst.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Prducto eliminado con el id: "+value);
+                        JOptionPane.showMessageDialog(null, "Product Deleted  id: "+value);
                         reload_table();
                     }catch (SQLException e1){
                         e1.printStackTrace();
@@ -155,7 +155,7 @@ public class Store extends JFrame {
                         pst.setString(4, rating);
                         pst.setString(5,value);
                         pst.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Prducto eliminado con el id: "+value);
+                        JOptionPane.showMessageDialog(null, "Product Updated id: "+value);
                         reload_table();
                     }catch (SQLException e1){
                         e1.printStackTrace();
