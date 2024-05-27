@@ -73,7 +73,7 @@ public class Store extends JFrame {
          setContentPane(Mainpanel);
          setTitle("example");
          setDefaultCloseOperation(EXIT_ON_CLOSE);
-         setSize(1000,800);
+         setSize(1366,668);
          setLocationRelativeTo(null);
          setVisible(true);
 
@@ -162,6 +162,41 @@ public class Store extends JFrame {
                     }
                 }else{
                     JOptionPane.showMessageDialog(null, "Row no selected");
+                }
+            }
+        });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String searchId;
+                searchId = idTextField.getText();
+                System.out.println(searchId);
+                DefaultTableModel model = (DefaultTableModel) products.getModel();
+                String [] datos = new String[5];
+                model.setRowCount(0);
+                try
+                {
+                    pst = objcConection.initConection().prepareStatement("select * from products WHERE id= ?");
+                    pst.setString(1,searchId);
+                    ResultSet rs = pst.executeQuery();
+
+                    if(!rs.next()){
+                        JOptionPane.showMessageDialog(null, "Producto not foudn :o ");
+                    } else {
+                        do {
+                            datos[0]=rs.getString(1);
+                            datos[1]=rs.getString(2);
+                            datos[2]=rs.getString(3);
+                            datos[3]=rs.getString(4);
+                            datos[4]=rs.getString(5);
+                            model.addRow(datos);
+                        }while (rs.next());
+
+                    }
+                }
+                catch (SQLException er)
+                {
+                    er.printStackTrace();
                 }
             }
         });
