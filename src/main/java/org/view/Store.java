@@ -182,7 +182,7 @@ public class Store extends JFrame {
                     ResultSet rs = pst.executeQuery();
 
                     if(!rs.next()){
-                        JOptionPane.showMessageDialog(null, "Producto not foudn :o ");
+                        JOptionPane.showMessageDialog(null, "Product not found :o ");
                     } else {
                         do {
                             datos[0]=rs.getString(1);
