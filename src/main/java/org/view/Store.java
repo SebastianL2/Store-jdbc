@@ -111,6 +111,20 @@ public class Store extends JFrame {
 
             }
         });
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = products.getSelectedRow();
+                int[] rows=products.getSelectedColumns();
+                if(row >=0){
+                    String value = products.getValueAt(row,0).toString();
+                    JOptionPane.showMessageDialog(null, value);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Row no selected");
+                }
+
+            }
+        });
     }
 
 
