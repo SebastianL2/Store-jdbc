@@ -134,6 +134,37 @@ public class Store extends JFrame {
 
             }
         });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row = products.getSelectedRow();
+                int[] rows=products.getSelectedColumns();
+                String title,description,price,rating;
+                title=textTitle.getText();
+                description=textDescription.getText();
+                price=textPrice.getText();
+                rating=textRating.getText();
+                if(row >=0){
+                    String value = products.getValueAt(row,0).toString();
+
+                    try{
+                        pst = objcConection.initConection().prepareStatement("UPDATE products SET title=?,description=?,price=?,rating=? WHERE id = ?");
+                        pst.setString(1, title);
+                        pst.setString(2, description);
+                        pst.setString(3, price);
+                        pst.setString(4, rating);
+                        pst.setString(5,value);
+                        pst.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Prducto eliminado con el id: "+value);
+                        reload_table();
+                    }catch (SQLException e1){
+                        e1.printStackTrace();
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Row no selected");
+                }
+            }
+        });
     }
 
 
