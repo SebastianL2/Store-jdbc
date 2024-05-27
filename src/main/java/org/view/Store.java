@@ -93,7 +93,7 @@ public class Store extends JFrame {
                     pst.setString(3, price);
                     pst.setString(4, rating);
                     pst.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Record Addedddd!!!!!");
+                    JOptionPane.showMessageDialog(null, "Record Added!!!!!");
                     reload_table();
                     textTitle.setText("");
                     textDescription.setText("");
